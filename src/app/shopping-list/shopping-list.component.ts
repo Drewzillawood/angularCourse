@@ -7,15 +7,14 @@ import { Ingredient } from '../shared/ingredient.model';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
+  @Input() featureSelected: boolean = false;
   ingredients: Ingredient[] = [
     new Ingredient('Apples', 5),
     new Ingredient('Tomatoes', 10)
   ];
-  @Input() featureSelected: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
