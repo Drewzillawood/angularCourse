@@ -86,7 +86,10 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
     "no-trailing-whitespace": false,
-    "eofline": false
+    "eofline": false,
+    "variable-name": {
+      "options": "allow-leading-underscore"
+    }
   },
   "rulesDirectory": [
     "codelyzer"
