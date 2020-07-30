@@ -26,7 +26,8 @@ export class AuthenticateSuccess implements Action {
       email: string,
       userId: string,
       expirationDate: Date,
-      token: string
+      token: string,
+      redirect: boolean
     }
   ) {}
 }

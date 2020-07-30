@@ -7,11 +7,11 @@ import {Store} from '@ngrx/store';
 
 import * as fromApp from '../store/app.reducer';
 import * as RecipesActions from '../recipes/store/recipe.actions';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
-  dbUrl: string = 'https://ng-course-recipe-book-4988e.firebaseio.com/recipes.json';
 
   constructor(private http: HttpClient,
               private recipeService: RecipeService,
@@ -23,7 +23,7 @@ export class DataStorageService {
     const recipes = this.recipeService.getRecipes();
     return this.http
       .put(
-        this.dbUrl,
+        environment.firebaseUrl,
         recipes
       )
       .subscribe(response => {
@@ -33,7 +33,7 @@ export class DataStorageService {
 
   fetchRecipes() {
     return this.http
-      .get<Recipe[]>(this.dbUrl)
+      .get<Recipe[]>(environment.firebaseUrl)
       .pipe(
         map(recipes => {
           return recipes.map(recipe => {

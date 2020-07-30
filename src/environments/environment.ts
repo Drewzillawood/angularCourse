@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  firebaseAPIKey: 'AIzaSyBS5Ue2grBih-k0sJpMY1KUrXO_UQf4rmI'
+  firebaseAPIKey: 'AIzaSyBS5Ue2grBih-k0sJpMY1KUrXO_UQf4rmI',
+  firebaseUrl: 'https://ng-course-recipe-book-4988e.firebaseio.com/recipes.json'
 };
 
 /*
