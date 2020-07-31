@@ -4,7 +4,6 @@ import {Injectable} from '@angular/core';
 import {map, switchMap, withLatestFrom} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Recipe} from '../recipe.model';
-import {environment} from '../../../environments/environment';
 import {Store} from '@ngrx/store';
 
 import * as RecipesActions from './recipe.actions';
@@ -18,7 +17,7 @@ export class RecipeEffects {
     ofType(RecipesActions.FETCH_RECIPES),
     switchMap(() => {
       return this.http.get<Recipe[]>(
-        environment.firebaseUrl
+        'https://ng-course-recipe-book-4988e.firebaseio.com/recipes.json'
       );
     }),
     map(recipes => {
@@ -41,7 +40,7 @@ export class RecipeEffects {
     switchMap(([actionData, recipesState]) => {
       return this.http
         .put(
-          environment.firebaseUrl,
+          'https://ng-course-recipe-book-4988e.firebaseio.com/recipes.json',
           recipesState.recipes
         );
     })
